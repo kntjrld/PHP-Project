@@ -11,7 +11,10 @@
 
             $user_name = $_POST['user_name'];
             $email = $_POST['email'];
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+            $password = $_POST['password'];
+
+            // encrypt password to db
+            // $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
 
             $query = "insert into users(user_name, email, password) values('$user_name', '$email', '$password')";
             $run = mysqli_query($conn,$query) or die(mysqli_error());
